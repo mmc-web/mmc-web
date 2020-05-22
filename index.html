@@ -16,6 +16,34 @@
   <!-- Custom styles for this template -->
   <link href="css/scrolling-nav.css" rel="stylesheet">
 
+<script src="https://www.gstatic.com/charts/loader.js"></script>
+<script>
+  google.charts.load('current', {packages: ['corechart']});
+  google.charts.setOnLoadCallback(drawChart);
+  ...
+</script>
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['timeline']});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var container = document.getElementById('timeline');
+        var chart = new google.visualization.Timeline(container);
+        var dataTable = new google.visualization.DataTable();
+
+        dataTable.addColumn({ type: 'string', id: 'President' });
+        dataTable.addColumn({ type: 'date', id: 'Start' });
+        dataTable.addColumn({ type: 'date', id: 'End' });
+        dataTable.addRows([
+          [ 'HTML', new Date(2020, 4, 27), new Date(2020, 5, 1) ],
+          [ 'CSS',      new Date(2020, 5, 1),  new Date(2020, 5, 8) ],
+          [ 'Javscript',  new Date(2020, 5, 8),  new Date(2020, 5, 15) ]]);
+
+        chart.draw(dataTable);
+      }
+    </script>
+
 </head>
 
 <body id="page-top">
@@ -55,7 +83,11 @@
   <header class="bg-primary text-white">
     <div class="container text-center">
       <h1>Hendriks House Project Compassion </h1>
-      <p class="lead">How your groups website could look </p>
+      <p class="lead">Website Learning Timeline</p>
+	  <br>
+	  <br>
+	  <br>
+	  <div id="timeline" style="height: 180px;"></div>
     </div>
   </header>
 
